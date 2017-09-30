@@ -9,7 +9,7 @@ const db = pgp(getConnection());
 
 const getAllLancamento = (req, res, next) => {
   db
-    .any("SELECT * FROM lancamentos")
+    .any("SELECT * FROM lancamentos order by id")
     .then(function(data) {
       res.status(200).json({
         data: data
