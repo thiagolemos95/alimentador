@@ -28,12 +28,17 @@ Endpoints:
 
   data: 
    - data_lancamento TEXT,
-   - tipo_lacamento TEXT,
+   - tipo_lancamento TEXT,
    - hora INTEGER,
    - minutos INTEGER,
    - quantidade_prevista INTEGER,
    - quantidade_realizada INTEGER,
    - status TEXT
+
+Exemplo:
+```
+/api/lancamento?data_lancamento=2017-01-01&tipo_lancamento=asdf&hora=12&minutos=12&quantidade_prevista=12&quantidade_realizada=12&status=feito 
+```
 
 
 variaveis de ambiente de produção:
