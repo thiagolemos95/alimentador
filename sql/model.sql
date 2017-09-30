@@ -1,4 +1,4 @@
-set timezone="America/Sao_Paulo"
+set timezone="America/Sao_Paulo";
 
 
 CREATE TABLE lancamentos (
