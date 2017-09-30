@@ -14,8 +14,6 @@ instruções desenvolvimento:
 npm install && npm start
 ```
 
-
-
 Endpoints:
 
 [GET] api/lancamentos -- para retornar todos os lançamentos
@@ -24,7 +22,9 @@ Endpoints:
 
 [POST] api/lancamento/data -- para salvar um lançamento
 
-**um post com os campos:**
+[PACTH] api/lancamento/data -- para atualizar um lançamento
+
+**um http post com os campos:**
 
   data: 
    - data_lancamento TEXT,
@@ -38,6 +38,19 @@ Endpoints:
 Exemplo:
 ```
 /api/lancamento?data_lancamento=2017-01-01&tipo_lancamento=asdf&hora=12&minutos=12&quantidade_prevista=12&quantidade_realizada=12&status=feito 
+```
+
+**um http patch com os campos:**
+
+parâmetro:
+  - id INTEGER - id do lançamento
+
+data:
+  - quantidade_realizada INTEGER,
+  - status TEXT 
+
+```
+/api/lancamento/1?quantidade_realizada=10&status=aguardando
 ```
 
 
