@@ -6,7 +6,7 @@ CREATE TABLE lancamentos (
   id serial,
   data_cadastro text NOT NULL DEFAULT TO_CHAR(CURRENT_TIMESTAMP,'YYYY-MM-DD HH:MI:SS'),
   data_lancamento TEXT,
-  tipo_lacamento TEXT,
+  tipo_lancamento TEXT,
   hora INTEGER,
   minutos INTEGER,
   quantidade_prevista INTEGER,
