@@ -60,8 +60,28 @@ const Lancamento = (req, res, next) => {
     });
 };
 
+const updateLancamento = (req, res, next) => {
+  const id = parseInt(req.params.id);
+  db
+    .none(
+      "update lancamentos set quantidade_realizada=$2,status=$3 where id=$1",
+      [id,parseInt(req.query.quantidade_realizada), req.query.status]
+    )
+    .then(() => {
+      res.status(200).json({
+        status: "success",
+        message: "lancamento atualizado"
+      });
+    })
+    .catch(err => {
+      console.log(err);
+      return next(err.error);
+    });
+};
+
 module.exports = {
   getAllLancamento: getAllLancamento,
   getLancamentoById: getLancamentoById,
-  Lancamento: Lancamento
+  Lancamento: Lancamento,
+  updateLancamento:updateLancamento
 };

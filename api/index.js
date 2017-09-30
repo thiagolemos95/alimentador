@@ -14,5 +14,5 @@ router.get('/', function(req, res, next) {
 router.get('/api/lancamentos', db.getAllLancamento);
 router.get('/api/lancamento/:id', db.getLancamentoById);
 router.post('/api/lancamento', db.Lancamento);
-
+router.patch('/api/lancamento/:id', db.updateLancamento);
 module.exports = router;
