@@ -15,7 +15,7 @@ app.use(logger(app.get("env") === "production" ? "combined" : "dev"));
 app.use(bodyParser.json());
 
 // parse application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true}));
 
 // CORS
 // Isso permite que aplicativos cliente de outros domínios usem o servidor API
@@ -59,7 +59,7 @@ app.use(function(req, res, next) {
     next(err);
 });
 
-// development error handler
+// desenvolvimento error handler
 // will print stacktrace
 if (app.get('env') === 'development') {
     app.use(function(err, req, res, next) {
@@ -71,8 +71,7 @@ if (app.get('env') === 'development') {
     });
 }
 
-// production error handler
-// no stacktraces leaked to user
+// produção error handler
 app.use(function(err, req, res, next) {
     res.status(err.status || 500)
     .json({
