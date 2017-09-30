@@ -12,8 +12,8 @@ const getAllLancamento = (req, res, next) => {
     .any("SELECT * FROM lancamentos")
     .then(function(data) {
       res.status(200).json({
-          data: data
-     });
+        data: data
+      });
     })
     .catch(function(err) {
       return next(err);
@@ -35,21 +35,28 @@ const getLancamentoById = (req, res, next) => {
 };
 
 const Lancamento = (req, res, next) => {
-  req.body.id = parseInt(req.body.id);
   db
     .none(
-      "INSERT INTO lancamentos(data_lancamento, tipo_lancamento, hora, minutos, minutos, quantidade_realizada,status)" +
-        "values(${data_lancamento}, ${tipo_lancamento}, ${hora}, ${minutos}, ${minutos}, ${quantidade_realizada}, ${status})",
-      req.body
+      "INSERT INTO lancamentos(data_lancamento, tipo_lancamento, hora, minutos,quantidade_prevista,quantidade_realizada,status) VALUES($1, $2, $3, $4, $5, $6, $7)",
+      [
+        req.query.data_lancamento,
+        req.query.tipo_lancamento,
+        parseInt(req.query.hora),
+        parseInt(req.query.minutos),
+        parseInt(req.query.quantidade_prevista),
+        parseInt(req.query.quantidade_realizada),
+        req.query.status
+      ]
     )
-    .then(function() {
+    .then(() => {
       res.status(200).json({
         status: "success",
         message: "Lancamento inserido"
       });
     })
-    .catch(function(err) {
-      return next(err);
+    .catch(err => {
+      console.log(err);
+      return next(err.error);
     });
 };
 
