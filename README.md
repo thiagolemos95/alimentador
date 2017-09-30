@@ -20,6 +20,8 @@ Endpoints:
 
 [GET] api/lancamento/id -- para retornar um lançamento
 
+[GET] api/lancamentos/status/nome_status -- para retornar um lançamento de acordo com o status 
+
 [POST] api/lancamento/data -- para salvar um lançamento
 
 [PACTH] api/lancamento/data -- para atualizar um lançamento
