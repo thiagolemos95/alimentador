@@ -13,6 +13,7 @@ router.get('/', function(req, res, next) {
 
 router.get('/api/lancamentos', db.getAllLancamento);
 router.get('/api/lancamento/:id', db.getLancamentoById);
+router.get('/api/lancamentos/status/:status', db.getLancamentoByStatus);
 router.post('/api/lancamento', db.Lancamento);
 router.patch('/api/lancamento/:id', db.updateLancamento);
 module.exports = router;

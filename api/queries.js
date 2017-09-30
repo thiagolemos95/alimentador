@@ -34,6 +34,20 @@ const getLancamentoById = (req, res, next) => {
     });
 };
 
+
+const getLancamentoByStatus = (req, res, next) => {
+  db
+    .one("SELECT * FROM lancamentos WHERE status = $1", req.params.status)
+    .then(function(data) {
+      res.status(200).json({
+        data: data
+      });
+    })
+    .catch(function(err) {
+      return next(err);
+    });
+};
+
 const Lancamento = (req, res, next) => {
   db
     .none(
@@ -83,5 +97,6 @@ module.exports = {
   getAllLancamento: getAllLancamento,
   getLancamentoById: getLancamentoById,
   Lancamento: Lancamento,
-  updateLancamento:updateLancamento
+  updateLancamento:updateLancamento,
+  getLancamentoByStatus:getLancamentoByStatus
 };
