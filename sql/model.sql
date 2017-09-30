@@ -1,10 +1,10 @@
-CREATE DATABASE alimentador OWNER postgres;
+set timezone="America/Sao_Paulo"
 
 
 CREATE TABLE lancamentos (
 
   id serial,
-  data_cadastro text NOT NULL DEFAULT TO_CHAR(CURRENT_TIMESTAMP,'YYYY-MM-DD'),
+  data_cadastro text NOT NULL DEFAULT TO_CHAR(CURRENT_TIMESTAMP,'YYYY-MM-DD HH:MI:SS'),
   data_lancamento TEXT,
   tipo_lacamento TEXT,
   hora INTEGER,
@@ -14,6 +14,7 @@ CREATE TABLE lancamentos (
   status TEXT
 
 );
+
 
 
 
