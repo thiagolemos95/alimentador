@@ -37,7 +37,7 @@ const getLancamentoById = (req, res, next) => {
 
 const getLancamentoByStatus = (req, res, next) => {
   db
-    .one("SELECT * FROM lancamentos WHERE status = $1", req.params.status)
+    .any("SELECT * FROM lancamentos WHERE status = $1", req.params.status)
     .then(function(data) {
       res.status(200).json({
         data: data
