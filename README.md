@@ -27,6 +27,8 @@ Endpoints:
 [PACTH] api/lancamento/data -- para atualizar um lançamento
 
 **um http post com os campos:**
+
+
 ***nota:*** header teve ter o content-type do tipo: `application/json`
 
   data: 
@@ -38,7 +40,10 @@ Endpoints:
    - quantidade_realizada INTEGER,
    - status TEXT
 
+Pode -se passar os dados via parâmetro na url 
+
 Exemplo:
+
 ```
 /api/lancamento?data_lancamento=2017-01-01&tipo_lancamento=asdf&hora=12&minutos=12&quantidade_prevista=12&quantidade_realizada=12&status=feito 
 ```
