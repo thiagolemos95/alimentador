@@ -27,6 +27,7 @@ Endpoints:
 [PACTH] api/lancamento/data -- para atualizar um lançamento
 
 **um http post com os campos:**
+***nota:*** header teve ter o content-type do tipo: `application/json`
 
   data: 
    - data_lancamento TEXT,
@@ -41,6 +42,7 @@ Exemplo:
 ```
 /api/lancamento?data_lancamento=2017-01-01&tipo_lancamento=asdf&hora=12&minutos=12&quantidade_prevista=12&quantidade_realizada=12&status=feito 
 ```
+***nota:*** header teve ter o content-type do tipo: `application/x-www-form-urlencoded`
 
 **um http patch com os campos:**
 
