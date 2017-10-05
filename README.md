@@ -20,13 +20,16 @@ Endpoints:
 
 [GET] api/lancamento/id -- para retornar um lançamento
 
-[GET] api/lancamentos/status/nome_status -- para retornar um lançamento de acordo com o status 
+[GET] /api/lancamentos/status/nome_status -- para retornar um lançamento de acordo com o status 
 
 [POST] api/lancamento/data -- para salvar um lançamento
 
 [PACTH] api/lancamento/data -- para atualizar um lançamento
 
 **um http post com os campos:**
+
+
+***nota:*** header teve ter o content-type do tipo: `application/json`
 
   data: 
    - data_lancamento TEXT,
@@ -37,15 +40,24 @@ Endpoints:
    - quantidade_realizada INTEGER,
    - status TEXT
 
+Pode -se passar os dados via parâmetro na url 
+
 Exemplo:
+
 ```
 /api/lancamento?data_lancamento=2017-01-01&tipo_lancamento=asdf&hora=12&minutos=12&quantidade_prevista=12&quantidade_realizada=12&status=feito 
 ```
+***nota:*** header teve ter o content-type do tipo: `application/x-www-form-urlencoded`
 
 **um http patch com os campos:**
 
 parâmetro:
-  - id INTEGER - id do lançamento
+  - status TEXT - nome do status
+
+parâmetros query string(opcionais):
+
+   - limit INTEGER - limite de retorno do banco
+   - format TEXT - tipo de formato de retorno `json`(default) | `json`
 
 data:
   - quantidade_realizada INTEGER,
@@ -53,8 +65,13 @@ data:
 
 ```
 /api/lancamento/1?quantidade_realizada=10&status=aguardando
-```
 
+```
+ou
+
+```
+/api/lancamentos/status/aguardando?limit=3&format=json
+```
 
 variaveis de ambiente de produção:
 
