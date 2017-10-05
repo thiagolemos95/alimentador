@@ -20,7 +20,7 @@ Endpoints:
 
 [GET] api/lancamento/id -- para retornar um lançamento
 
-[GET] api/lancamentos/status/nome_status -- para retornar um lançamento de acordo com o status 
+[GET] /api/lancamentos/status/nome_status -- para retornar um lançamento de acordo com o status 
 
 [POST] api/lancamento/data -- para salvar um lançamento
 
@@ -45,7 +45,12 @@ Exemplo:
 **um http patch com os campos:**
 
 parâmetro:
-  - id INTEGER - id do lançamento
+  - status TEXT - nome do status
+
+parâmetros query string(opcionais):
+
+   - limit INTEGER - limite de retorno do banco
+   - format TEXT - tipo de formato de retorno `json`(default) | `json`
 
 data:
   - quantidade_realizada INTEGER,
@@ -53,8 +58,13 @@ data:
 
 ```
 /api/lancamento/1?quantidade_realizada=10&status=aguardando
-```
 
+```
+ou
+
+```
+/api/lancamentos/status/aguardando?limit=3&format=json
+```
 
 variaveis de ambiente de produção:
 
