@@ -140,5 +140,7 @@ module.exports = {
   getLancamentoById: getLancamentoById,
   Lancamento: Lancamento,
   updateLancamento: updateLancamento,
-  getLancamentoByStatus: getLancamentoByStatus
+  getLancamentoByStatus: getLancamentoByStatus,
+  getAllLancamento2:getAllLancamento2
+  
 };
