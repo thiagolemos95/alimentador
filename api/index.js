@@ -16,5 +16,4 @@ router.get('/api/lancamento/:id', db.getLancamentoById);
 router.get('/api/lancamentos/status/:status', db.getLancamentoByStatus);
 router.post('/api/lancamento', db.Lancamento);
 router.patch('/api/lancamento/:id', db.updateLancamento);
-router.get('/api/lancamentos2', db.getAllLancamento2);
 module.exports = router;

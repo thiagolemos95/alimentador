@@ -12,19 +12,6 @@ const getAllLancamento = (req, res, next) => {
   db
     .any("SELECT * FROM lancamentos order by id")
     .then(function(data) {
-      res.status(200).json({
-        data: data
-      });
-    })
-    .catch(function(err) {
-      return next(err);
-    });
-};
-
-const getAllLancamento2 = (req, res, next) => {
-  db
-    .any("SELECT * FROM lancamentos order by id")
-    .then(function(data) {
       res.status(200).json(data);
     })
     .catch(function(err) {
@@ -37,9 +24,7 @@ const getLancamentoById = (req, res, next) => {
   db
     .one("SELECT * FROM lancamentos WHERE id = $1", id)
     .then(function(data) {
-      res.status(200).json({
-        data: data
-      });
+      res.status(200).json(data);
     })
     .catch(function(err) {
       return next(err);
@@ -140,7 +125,5 @@ module.exports = {
   getLancamentoById: getLancamentoById,
   Lancamento: Lancamento,
   updateLancamento: updateLancamento,
-  getLancamentoByStatus: getLancamentoByStatus,
-  getAllLancamento2:getAllLancamento2
-  
+  getLancamentoByStatus: getLancamentoByStatus  
 };
