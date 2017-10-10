@@ -120,10 +120,24 @@ const updateLancamento = (req, res, next) => {
     });
 };
 
+const getAllLancamentoFront = (req, res, next) => {
+  db
+    .any("SELECT * FROM lancamentos order by id")
+    .then(function(data) {
+      res.status(200).json({
+        data: data
+      });
+    })
+    .catch(function(err) {
+      return next(err);
+    });
+};
+
 module.exports = {
   getAllLancamento: getAllLancamento,
   getLancamentoById: getLancamentoById,
   Lancamento: Lancamento,
   updateLancamento: updateLancamento,
-  getLancamentoByStatus: getLancamentoByStatus  
+  getLancamentoByStatus: getLancamentoByStatus,
+  getAllLancamentoFront:getAllLancamentoFront 
 };
