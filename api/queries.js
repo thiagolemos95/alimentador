@@ -21,18 +21,6 @@ const getAllLancamento = (req, res, next) => {
     });
 };
 
-const getAllLancamento2 = (req, res, next) => {
-  db
-    .any("SELECT * FROM lancamentos order by id")
-    .then(function(data) {
-      res.status(200).json(data);
-    })
-    .catch(function(err) {
-      return next(err);
-    });
-};
-
-
 const getLancamentoById = (req, res, next) => {
   var id = parseInt(req.params.id);
   db
